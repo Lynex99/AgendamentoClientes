@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento de Serviços</title>
+  <style>
+    /* Tailwind CSS minificado (subset otimizado para este projeto) */
+    *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}body{margin:0;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}.min-h-screen{min-height:100vh}.flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-pink-50{--tw-bg-opacity:1;background-color:rgb(253 242 248 / var(--tw-bg-opacity))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity))}.bg-pink-500{--tw-bg-opacity:1;background-color:rgb(236 72 153 / var(--tw-bg-opacity))}.hover\:bg-pink-600:hover{--tw-bg-opacity:1;background-color:rgb(219 39 119 / var(--tw-bg-opacity))}.p-8{padding:2rem}.rounded-lg{border-radius:0.5rem}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1)}.w-full{width:100%}.max-w-2xl{max-width:42rem}.text-2xl{font-size:1.5rem;line-height:2rem}.font-bold{font-weight:700}.text-center{text-align:center}.mb-6{margin-bottom:1.5rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.block{display:block}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-medium{font-weight:500}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.mt-1{margin-top:0.25rem}.p-2{padding:0.5rem}.border{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity));border-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68 / var(--tw-border-opacity))}.rounded-md{border-radius:0.375rem}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:bg-pink-600:hover{--tw-bg-opacity:1;background-color:rgb(219 39 119 / var(--tw-bg-opacity))}.mt-6{margin-top:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.font-semibold{font-weight:600}.mb-2{margin-bottom:0.5rem}.grid{display:grid}.grid-cols-7{grid-template-columns:repeat(7,minmax(0,1fr))}.gap-1{gap:0.25rem}.cursor-pointer{cursor:pointer}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity))}.ring-2{--tw-ring-offset-width:2px;box-shadow:0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color),0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-blue-500{--tw-ring-color:rgb(59 130 246)}.opacity-50{opacity:0.5}
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-pink-50 p-8 rounded-lg shadow-md w-full max-w-2xl">
+    <h1 class="text-2xl font-bold text-center mb-6">Agendamento de Serviços</h1>
+
+    <!-- Formulário -->
+    <form id="agendamentoForm" action="YOUR_GOOGLE_FORM_URL_HERE" method="POST" class="space-y-4">
+      <div>
+        <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+      </div>
+      <div>
+        <label for="servico" class="block text-sm font-medium text-gray-700">Serviço</label>
+        <select id="servico" name="servico" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+          <option value="">Selecione um serviço</option>
+          <option value="corte">Corte de Cabelo</option>
+          <option value="manicure">Manicure</option>
+          <option value="limpeza">Limpeza Residencial</option>
+        </select>
+      </div>
+      <div>
+        <label for="contato" class="block text-sm font-medium text-gray-700">Contato (Telefone ou E-mail)</label>
+        <input type="text" id="contato" name="contato" autocomplete="tel email" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+      </div>
+      <div>
+        <label for="pagamento" class="block text-sm font-medium text-gray-700">Forma de Pagamento</label>
+        <select id="pagamento" name="pagamento" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+          <option value="">Selecione uma forma</option>
+          <option value="dinheiro">Dinheiro</option>
+          <option value="cartao">Cartão</option>
+          <option value="pix">PIX</option>
+        </select>
+      </div>
+      <div>
+        <label for="data" class="block text-sm font-medium text-gray-700">Data</label>
+        <input type="date" id="data" name="data" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+      </div>
+      <div>
+        <label for="horario" class="block text-sm font-medium text-gray-700">Horário</label>
+        <select id="horario" name="horario" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+          <option value="">Selecione um horário</option>
+        </select>
+      </div>
+      <button type="submit" disabled class="w-full bg-pink-500 text-white p-2 rounded-md hover:bg-pink-600 opacity-50">Enviar Agendamento</button>
+    </form>
+
+    <!-- Calendário -->
+    <div class="mt-6">
+      <h2 class="text-lg font-semibold mb-2">Verificar Disponibilidade</h2>
+      <div id="calendario" class="grid grid-cols-7 gap-1 text-center"></div>
+      <p id="status" class="mt-2 text-sm text-gray-600"></p>
+    </div>
+  </div>
+
+  <script>
+    // Exemplo de datas disponíveis
+    const datasDisponiveis = ["2025-04-20", "2025-04-22", "2025-04-25"];
+    const horariosDisponiveis = ["08:00", "10:00", "14:00", "16:00", "18:00", "20:00"];
+
+    // Desativar datas passadas
+    const hoje = new Date().toISOString().split("T")[0];
+    document.getElementById("data").setAttribute("min", hoje);
+
+    // Gerar calendário
+    function gerarCalendario() {
+      const calendario = document.getElementById("calendario");
+      const hoje = new Date();
+      const mes = hoje.getMonth();
+      const ano = hoje.getFullYear();
+      const primeiroDia = new Date(ano, mes, 1).getDay();
+      const diasNoMes = new Date(ano, mes + 1, 0).getDate();
+
+      calendario.innerHTML = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"]
+        .map((dia) => `<div class="font-semibold">${dia}</div>`)
+        .join("");
+
+      for (let i = 0; i < primeiroDia; i++) {
+        calendario.innerHTML += "<div></div>";
+      }
+
+      for (let dia = 1; dia <= diasNoMes; dia++) {
+        const dataFormatada = `${ano}-${String(mes + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
+        const isDisponivel = datasDisponiveis.includes(dataFormatada);
+        const isPassada = new Date(dataFormatada) < new Date(hoje);
+        calendario.innerHTML += `
+          <div class="${
+            isPassada ? "bg-gray-200" : isDisponivel ? "bg-green-100" : "bg-red-100"
+          } p-2 rounded cursor-pointer" 
+               ${isPassada ? "" : `onclick="selecionarData('${dataFormatada}')"`}>${dia}</div>
+        `;
+      }
+    }
+
+    // Selecionar data e mostrar horários
+    function selecionarData(data) {
+      const inputData = document.getElementById("data");
+      const horarioSelect = document.getElementById("horario");
+      const status = document.getElementById("status");
+      inputData.value = data;
+
+      // Destacar data selecionada
+      document.querySelectorAll("#calendario div").forEach((div) => div.classList.remove("ring-2", "ring-blue-500"));
+      const diaSelecionado = Array.from(document.querySelectorAll("#calendario div")).find(
+        (div) => div.textContent === data.split("-")[2]
+      );
+      if (diaSelecionado) diaSelecionado.classList.add("ring-2", "ring-blue-500");
+
+      // Atualizar status
+      if (datasDisponiveis.includes(data)) {
+        status.textContent = `Data ${data} está disponível! Escolha um horário.`;
+        status.classList.remove("text-red-600");
+        status.classList.add("text-green-600");
+
+        // Preencher horários disponíveis
+        horarioSelect.innerHTML = '<option value="">Selecione um horário</option>';
+        horariosDisponiveis.forEach((horario) => {
+          horarioSelect.innerHTML += `<option value="${horario}">${horario}</option>`;
+        });
+      } else {
+        status.textContent = `Data ${data} não está disponível.`;
+        status.classList.remove("text-green-600");
+        status.classList.add("text-red-600");
+        horarioSelect.innerHTML = '<option value="">Selecione um horário</option>';
+      }
+
+      // Atualizar estado do botão
+      atualizarBotao();
+    }
+
+    // Validação em tempo real
+    document.getElementById("agendamentoForm").addEventListener("input", (e) => {
+      const campo = e.target;
+      const erro = campo.nextElementSibling;
+      if (!campo.value) {
+        campo.classList.add("border-red-500");
+        if (!erro || !erro.classList.contains("text-red-500")) {
+          campo.insertAdjacentHTML("afterend", '<p class="text-red-500 text-sm">Campo obrigatório</p>');
+        }
+      } else {
+        campo.classList.remove("border-red-500");
+        erro?.remove();
+      }
+      atualizarBotao();
+    });
+
+    // Atualizar estado do botão de envio
+    function atualizarBotao() {
+      const form = document.getElementById("agendamentoForm");
+      const submitBtn = form.querySelector("button[type='submit']");
+      const isValid = form.checkValidity() && datasDisponiveis.includes(form.data.value) && form.horario.value;
+      submitBtn.disabled = !isValid;
+      submitBtn.classList.toggle("opacity-50", !isValid);
+    }
+
+    // Manipular envio do formulário
+    document.getElementById("agendamentoForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+      if (datasDisponiveis.includes(data.data) && data.horario) {
+        try {
+          await fetch(e.target.action, {
+            method: "POST",
+            body: new URLSearchParams(data),
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          });
+          alert(
+            `Agendamento confirmado!\nNome: ${data.nome}\nServiço: ${data.servico}\nContato: ${data.contato}\nPagamento: ${data.pagamento}\nData: ${data.data}\nHorário: ${data.horario}`
+          );
+          e.target.reset();
+          document.getElementById("status").textContent = "";
+          document.getElementById("horario").innerHTML = '<option value="">Selecione um horário</option>';
+          document.querySelectorAll("#calendario div").forEach((div) => div.classList.remove("ring-2", "ring-blue-500"));
+        } catch (error) {
+          alert("Erro ao enviar o agendamento. Tente novamente.");
+        }
+      } else {
+        alert("Por favor, selecione uma data e horário disponíveis.");
+      }
+    });
+
+    // Inicializar o calendário
+    gerarCalendario();
+  </script>
+</body>
+</html>
